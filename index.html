@@ -212,6 +212,13 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
 @keyframes ping{from{transform:scale(1);opacity:.7}to{transform:scale(5);opacity:0}}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.ph::before,.roads path,.pulse{animation:none}}
 @media (prefers-reduced-motion:reduce){.orb,.curtain span,.badge text{animation:none}.l span{transform:none!important;animation:none!important}.curtain{transition-duration:.01s}}
+
+/* pagina carta vini overlay o nascosta */
+#page-vini {display:none; padding:7rem clamp(1.2rem,6vw,6rem) 4rem;}
+body.view-vini main {display:none;}
+body.view-vini #page-vini {display:block;}
+.back-btn {display:inline-block;margin-bottom:2rem;padding:0.8rem 1.6rem;border-radius:99px;background:var(--ink);color:var(--bg);font:500 1rem var(--sans);cursor:pointer}
+.back-btn:hover {background:var(--apri);}
 </style>
 </head>
 <body>
@@ -224,10 +231,22 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
 <div class="blob" style="background:var(--pist);opacity:.18;width:32vmax;height:32vmax"></div>
 
 <header>
-  <a class="logo" href="#top">Eufrosino</a>
-  <nav><a href="#storia">Storia</a><a href="#menu">Menu</a><a href="#recensioni">Recensioni</a><a href="#foto">Foto</a><a href="#orari">Orari</a><a href="#dove">Dove</a><a href="#contatti">Contatti</a><a href="tel:+393485883932" class="pill" data-mag>Chiama 348 588 3932</a></nav>
+  <a class="logo" href="#top" onclick="showHome()">Eufrosino</a>
+  <nav>
+    <a href="#storia">Storia</a>
+    <a href="#menu">Menu</a>
+    <a href="#" onclick="showVini(event)">Carta Vini</a>
+    <a href="#riconoscimenti">Riconoscimenti</a>
+    <a href="#recensioni">Recensioni</a>
+    <a href="#foto">Foto</a>
+    <a href="#orari">Orari</a>
+    <a href="#dove">Dove</a>
+    <a href="#contatti">Contatti</a>
+    <a href="tel:+393485883932" class="pill" data-mag>Chiama 348 588 3932</a>
+  </nav>
 </header>
 
+<!-- PAGINA PRINCIPALE HOME -->
 <main id="top">
   <section class="hero">
     <h1 id="title" aria-label="Eufrosino"></h1>
@@ -266,7 +285,26 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
 
   <section class="menu" id="menu">
     <h2>Il menu</h2>
+    <div style="margin-bottom:2rem;"><a class="pill" href="#" onclick="showVini(event)">Apri la Carta Vini Completa ↗</a></div>
     <div class="rows" id="rows"></div>
+  </section>
+
+  <section class="sec" id="riconoscimenti">
+    <h2>Riconoscimenti & Guide</h2>
+    <div class="revs rv">
+      <article class="rev">
+        <q>Due anime, una sola grande passione. L’energia di A Rota e l’anima autentica di Eufrosino Osteria si uniscono sotto lo stesso tetto per dare vita a un locale unico tra tradizione verace e innovazione romana.</q>
+        <small><span class="st">★★★★★</span><br>Segnalato da Gambero Rosso, Slow Food, 5 Top Pizza & L’Espresso</small>
+      </article>
+      <article class="rev">
+        <q>Stanley Tucci ha intrapreso un viaggio in Italia alla scoperta delle cucine più autentiche, eleggendo le nostre specialità romane e la pizza al mattarello tra le eccellenze del Lazio.</q>
+        <small><span class="st">★★★★★</span><br>Riconoscimento internazionale TV & Guide Gastronomiche</small>
+      </article>
+      <article class="rev">
+        <q>Un locale verace tra il Tuscolano e il Pigneto che porta avanti con maestria la cultura della vera pizza romana stesa al mattarello e della friggitoria d’autore.</q>
+        <small><span class="st">★★★★★</span><br>Identità Golose & Guide ai Sapori</small>
+      </article>
+    </div>
   </section>
 
   <section class="sec" id="recensioni">
@@ -297,12 +335,12 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
   <section class="sec" id="orari">
     <h2>Quando venire</h2>
     <div class="hours rv">
-      <div class="day"><span>Lunedì</span><em>chiuso</em></div>
+      <div class="day"><span>Lunedì</span><em>12.30–15.00</em></div>
       <div class="day"><span>Martedì</span><em>chiuso</em></div>
-      <div class="day"><span>Mercoledì</span><em>19.30–23.00</em></div>
-      <div class="day"><span>Giovedì</span><em>19.30–23.00</em></div>
-      <div class="day"><span>Venerdì</span><em>19.30–23.00</em></div>
-      <div class="day"><span>Sabato</span><em>12.30–15.00 e 19.30–23.00</em></div>
+      <div class="day"><span>Mercoledì</span><em>12.30–15.00</em></div>
+      <div class="day"><span>Giovedì</span><em>12.30–15.00</em></div>
+      <div class="day"><span>Venerdì</span><em>12.30–15.00</em></div>
+      <div class="day"><span>Sabato</span><em>12.30–15.00</em></div>
       <div class="day"><span>Domenica</span><em>12.30–15.00 e 19.30–23.00</em></div>
     </div>
   </section>
@@ -336,6 +374,16 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
     </div>
   </section>
 </main>
+
+<!-- PAGINA SEPARATA CARTA VINI -->
+<div id="page-vini">
+  <a class="back-btn" href="#" onclick="showHome(event)">← Torna al sito</a>
+  <section class="menu" style="padding-top:1rem;">
+    <h2>Carta dei Vini</h2>
+    <div class="rows" id="vini-rows"></div>
+  </section>
+</div>
+
 <div class="orb" id="orb"></div>
 <footer>Osteria Eufrosino, Roma</footer>
 
@@ -373,112 +421,130 @@ const manifEl=$("#manif");
 manifEl.innerHTML=manifEl.textContent.split(" ").map(w=>`<span class="w${/tavola|vino|ore/.test(w)?" hl":""}">${w}</span>`).join(" ");
 const words=$$(".w",manifEl);
 
-/* menu */
+/* menu principale (senza vini) */
 const G=[
 ["Friggitoria Romana",[
-["crocchetta cacio e pepe","patate, mozzarella, pecorino, pepe, uovo, pangrattato.","2,80 €"],
-["supplì al telefono","riso, pomodoro, mozzarella, uova, pangrattato, basilico, soffritto.","2,80 €"],
-["supplì carbonara","riso, uovo, guanciale, pepe, pangrattato, pecorino.","3,00 €"],
-["frittatina di bucatini all’amatriciana","pasta, pomodoro, guanciale, pepe, pangrattato, uovo, pecorino.","4,50 €"],
-["tris della romanità","supplì carbonara, frittatina all'amatriciana, crocchetta cacio e pepe.","9,00 €"],
-["filetto di baccalà con crema di ceci","baccalà, farina, lievito di birra, olio evo, crema di ceci, pomodoro e rosmarino.","6,50 €"],
-["mozzarella in carrozza","pane, mozzarella, basilico, prosciutto crudo, uovo.","5,80 €"]]],
+["Crocchetta cacio e pepe","Patate, mozzarella, pecorino, pepe, uovo, pangrattato.","2,80 €"],
+["Supplì al telefono","Riso, pomodoro, mozzarella, uova, pangrattato, basilico, soffritto.","2,80 €"],
+["Supplì carbonara","Riso, uovo, guanciale, pepe, pangrattato, pecorino.","3,00 €"],
+["Frittatina di bucatini all’amatriciana","Pasta, pomodoro, guanciale, pepe, pangrattato, uovo, pecorino.","4,50 €"],
+["Tris della romanità","Supplì carbonara, frittatina all'amatriciana, crocchetta cacio e pepe.","9,00 €"],
+["Filetto di baccalà con crema di ceci","Baccalà, farina, lievito di birra, olio evo, crema di ceci, pomodoro e rosmarino.","6,50 €"],
+["Mozzarella in carrozza","Pane, mozzarella, basilico, prosciutto crudo, uovo.","5,80 €"]]],
 ["Dalla Cucina",[
-["la zozza","la mitica pizza della tradizione romana, servita a pezzi e “sporcata” di pomodoro, olio, sale e origano. (la pizza prima della pizza).","8,00 €"],
-["panzanella alla romana e bufala","pane, pomodori, cipolla, olio evo, aceto, origano, basilico e mozzarella di bufala campana dop.","8,00 €"],
-["polpette di bollito","bovino adulto selezione “macelleria galli”, patate, uova, pecorino romano dop, mortadella igp, noce moscata, pangrattato* salsa: prezzemolo, aglio, acciughe, capperi, aceto e olio eva.","8,00 €"],
-["trippa alla romana","trippa di vitello selezione “macelleria galli”, pecorino romano dop, pomodori pelati 100% italiani, soffritto di sedano, carota e cipolla, vino bianco, olio extravergine di oliva e menta fresca.","9,00 €"],
-["alici dorate","alici infarinate e fritte servite con maionese al pepe.","9,00 €"],
-["pandorato del mese","pane casareccio “ammollato” nel latte e fritto con l’uovo servito ogni mese con nuovi condimenti.","* €"]]],
+["La Zozza","La mitica pizza della tradizione romana, servita a pezzi e “sporcata” di pomodoro, olio, sale e origano (la pizza prima della pizza).","8,00 €"],
+["Panzanella alla romana e bufala","Pane, pomodori, cipolla, olio evo, aceto, origano, basilico e mozzarella di bufala campana dop.","8,00 €"],
+["Polpette di bollito","Bovino adulto selezione “macelleria galli”, patate, uova, pecorino romano dop, mortadella igp, noce moscata, pangrattato, salsa: prezzemolo, aglio, acciughe, capperi, aceto e olio eva.","8,00 €"],
+["Trippa alla romana","Trippa di vitello selezione “macelleria galli”, pecorino romano dop, pomodori pelati 100% italiani, soffritto di sedano, carota e cipolla, vino bianco, olio extravergine di oliva e menta fresca.","9,00 €"],
+["Alici dorate","Alici infarinate e fritte servite con maionese al pepe.","9,00 €"],
+["Pandorato del mese","Pane casareccio “ammollato” nel latte e fritto con l’uovo servito ogni mese con nuovi condimenti.","* €"]]],
 ["Primi",[
-["carbonara","pecorino romano dop, pepe nero “emporio delle spezie”, uova, guanciale artigianale “bottega roccia”.","12,00 €"],
-["cacio e pepe","pecorino romano dop, selezione di tre pepi “emporio delle spezie”.","12,00 €"],
-["’matriciana","pomodori 100% italiani, guanciale “bottega roccia”, pecorino romano dop, pepe nero “emporio delle spezie”.","12,00 €"],
-["gricia","pecorino romano dop, pepe nero “emporio delle spezie”, guanciale artigianale “bottega roccia”.","12,00 €"],
-["gnocchi alla vaccinara","gnocchi di patate “pastificio secondi”, pomodori 100% italiani, stracotto di coda di vitelone selezione “macelleria galli”, sedano, carota e cipolla, olio evo, pepe nero e pecorino romano dop.","14,00 €"],
-["zingara","aglio, olio e peperoncino, sugo di pomodoro, filetti di tonno, prezzemolo, olive, capperi, basilico fresco e olio extravergine di oliva.","9,00 €"]]],
+["Carbonara","Pecorino romano dop, pepe nero “emporio delle spezie”, uova, guanciale artigianale “bottega roccia”.","12,00 €"],
+["Cacio e pepe","Pecorino romano dop, selezione di tre pepi “emporio delle spezie”.","12,00 €"],
+["’Matriciana","Pomodori 100% italiani, guanciale “bottega roccia”, pecorino romano dop, pepe nero “emporio delle spezie”.","12,00 €"],
+["Gricia","Pecorino romano dop, pepe nero “emporio delle spezie”, guanciale artigianale “bottega roccia”.","12,00 €"],
+["Gnocchi alla vaccinara","Gnocchi di patate “pastificio secondi”, pomodori 100% italiani, stracotto di coda di vitelone selezione “macelleria galli”, sedano, carota e cipolla, olio evo, pepe nero e pecorino romano dop.","14,00 €"],
+["Zingara","Aglio, olio e peperoncino, sugo di pomodoro, filetti di tonno, prezzemolo, olive, capperi, basilico fresco e olio extravergine di oliva.","9,00 €"]]],
 ["Secondi",[
-["saltimbocca alla romana","fettine scelte di vitella selezione “macelleria galli”, prosciutto crudo di parma dop 24 mesi, salvia, vino, pepe, farina e olio evo.","15,00 €"],
-["coda alla vaccinara","coda di vitellone selezione “macelleria galli”, sedano, carota e cipolla, olio extravergine di oliva, pomodori pelati 100% italiani, pepe e “odori”.","15,00 €"],
-["pollo alla cacciatora","pollo ruspante selezione “macelleria galli”, olio extravergine di oliva, rosmarino, pepe nero, aglio, vino bianco e aceto bono.","14,00 €"]]],
+["Saltimbocca alla romana","Fettine scelte di vitella selezione “macelleria galli”, prosciutto crudo di parma dop 24 mesi, salvia, vino, pepe, farina e olio evo.","15,00 €"],
+["Coda alla vaccinara","Coda di vitellone selezione “macelleria galli”, sedano, carota e cipolla, olio extravergine di oliva, pomodori pelati 100% italiani, pepe e “odori”.","15,00 €"],
+["Pollo alla cacciatora","Pollo ruspante selezione “macelleria galli”, olio extravergine di oliva, rosmarino, pepe nero, aglio, vino bianco e aceto bono.","14,00 €"]]],
 ["Contorni",[
-["cicoria, ajo e ojo","cicoria ripassata in padella con aglio, olio e peperoncino.","6,00 €"],
-["patate ar forno","patate, aglio, olio evo e rosmarino.","6,00 €"]]],
+["Cicoria, ajo e ojo","Cicoria ripassata in padella con aglio, olio e peperoncino.","6,00 €"],
+["Patate ar forno","Patate, aglio, olio evo e rosmarino.","6,00 €"]]],
 ["‘E Pizze — Made by A Rota (Pizzeria Osteria Romana)",[
-["rossa","pomodoro e olio evo.","7,50 €"],
-["marinara","pomodoro, aglio, origano, olio evo.","8,00 €"],
-["margherita","pomodoro, mozzarella, basilico.","9,00 €"],
-["funghi rossa","pomodoro, funghi, prezzemolo, olio evo.","9,50 €"],
-["napoli","pomodoro, mozzarella, alici.","10,00 €"],
-["margherita con bufala","pomodoro, mozzarella di bufala campana dop, basilico, olio evo.","11,00 €"],
-["diavola","pomodoro, mozzarella, salame piccante.","11,00 €"],
-["calzone romano","mozzarella, uovo, prosciutto crudo.","11,00 €"],
-["ortolana di stagione","inquadra il qr code per scoprire la nostra ortolana.","* €"],
-["crostino","mozzarella, prosciutto cotto.","11,00 €"],
-["tonno e cipolla","pomodoro, mozzarella, tonno, cipolla.","11,00 €"],
-["boscaiola","mozzarella, funghi, salsiccia, pepe.","11,00 €"],
-["focaccia con prosciutto","prosciutto crudo, olio evo.","11,00 €"],
-["patate e salsiccia","mozzarella, patate, salsiccia, rosmarino.","11,00 €"],
-["capricciosa","pomodoro, mozzarella, carciofini, olive, funghi, uova, prosciutto crudo.","11,50 €"],
-["quattro formaggi","mozzarella, brie, gorgonzola, parmigiano, noce moscata.","11,50 €"],
-["focaccia con bufala e prosciutto","mozzarella di bufala campana dop, prosciutto crudo, olio evo, basilico.","13,00 €"]]],
+["Rossa","Pomodoro e olio evo.","7,50 €"],
+["Marinara","Pomodoro, aglio, origano, olio evo.","8,00 €"],
+["Margherita","Pomodoro, mozzarella, basilico.","9,00 €"],
+["Funghi rossa","Pomodoro, funghi, prezzemolo, olio evo.","9,50 €"],
+["Napoli","Pomodoro, mozzarella, alici.","10,00 €"],
+["Margherita con bufala","Pomodoro, mozzarella di bufala campana dop, basilico, olio evo.","11,00 €"],
+["Diavola","Pomodoro, mozzarella, salame piccante.","11,00 €"],
+["Calzone romano","Mozzarella, uovo, prosciutto crudo.","11,00 €"],
+["Ortolana di stagione","Mozzarella, patate sfrangnate, verza ripassata co ajo, ojo e peperoncino, crema di carote, prezzemolo.","12,00 €"],
+["Crostino","Mozzarella, prosciutto cotto.","11,00 €"],
+["Tonno e cipolla","Pomodoro, mozzarella, tonno, cipolla.","11,00 €"],
+["Boscaiola","Mozzarella, funghi, salsiccia, pepe.","11,00 €"],
+["Focaccia con prosciutto","Prosciutto crudo, olio evo.","11,00 €"],
+["Patate e salsiccia","Mozzarella, patate, salsiccia, rosmarino.","11,00 €"],
+["Capricciosa","Pomodoro, mozzarella, carciofini, olive, funghi, uova, prosciutto crudo.","11,50 €"],
+["Quattro formaggi","Mozzarella, brie, gorgonzola, parmigiano, noce moscata.","11,50 €"],
+["Focaccia con bufala e prosciutto","Mozzarella di bufala campana dop, prosciutto crudo, olio evo, basilico.","13,00 €"]]],
 ["Le Speciali di Ottobre — Made by A Rota",[
-["pandorato del mese","funghi cardoncelli spadellati, pecorino romano dop, trito di prezzemolo.","8,00 €"],
-["sami special","pomodoro in cottura, salame piccante, ricotta lavorata a ciuffi, olive taggiasche a pezzi, olio extravergine di oliva flaminio al peperoncino, prezzemolo fresco.","16,00 €"],
-["ripiena","soffritto di carote, sedano e cipolla, ragù bianco di cortile, provola affumicata, cipolla fritta.","16,00 €"],
-["ortolana di stagione","mozzarella, patate sfrangnate, verza ripassata co ajo, ojo e peperoncino, crema di carote, prezzemolo.","12,00 €"],
-["fiori e alici","mozzarella, fiori di zucca, alici di cetara.","12,00 €"],
-["ripiena dolce","crema pasticcera all'ananas (latte, uovo), ananas a cubetti, crumble di amaretti.","18,00 €"],
-["gelato del mese","melone bianco invernale.","6,00 €"]]],
-["Carta dei Vini — Bianchi",[
-["casale mattia “terre laviche” frascati doc bio","(20% malvasia 20% trebbiano 30% bombino 30% bellone).","22,00 €"],
-["riserva della cascina “gallieno bio” igt","(100% malvasia puntinata).","32,00 €"],
-["damiano ciolli olevano “botte 22” doc","(70% trebbiano 30% ottonese).","29,00 €"],
-["alberto giacobbe paliano “duchessa”","(100% passerina).","24,00 €"],
-["donne del vico latina “servana” igp","(100% bellone).","24,00 €"],
-["cantina berucci piglio “raphael bianco” igt","(70% trebbiano 10% ottonese 10% malvasia).","33,00 €"],
-["casale certosa santa palomba “grechetto” igp","(100% grechetto).","24,00 €"],
-["merumalia frascati “giova” igp","(100% greco).","26,00 €"]]],
-["Carta dei Vini — Rossi",[
-["podere orto trevinano “trivium” igp","(70% sangiovese 30% grechetto rosso).","38,00 €"],
-["cantina berucci piglio “rapahael rosso” docg","(100% cesanese di affile).","39,00 €"],
-["casale certosa santa palomba “luperco bio” igp","(100% montepulciano).","26,00 €"],
-["marco carpineti cori “capolemole rosso” igt","(60% nero buono 30% montepulciano 10% cesanese).","32,00 €"],
-["alberto giacobbe paliano “giacobbe” cesanese di olevano superiore doc","(100% cesanese di affile).","28,00 €"],
-["alberto giacobbe paliano “lepanto” cesanese del piglio superiore docg","(100% cesanese di affile).","52,00 €"],
-["merumalia frascati “vetus bio” doc","(70% montepulciano 30% shiraz).","30,00 €"],
-["riserva della cascina “ix miglio rosso bio” igt","(50% merlot 30% montepulciano 20% sangiovese).","24,00 €"],
-["i pampini latina “oriente syrah” igt","(100% syrah).","30,00 €"]]],
-["Carta dei Vini — Rosati e Rifermentati",[
-["riserva della cascina “la via delle rose bio” igt","(100% sangiovese laziale).","28,00 €"],
-["alberto giacobbe paliano “sfriccio” igp","(100% cesanese di affile).","25,00 €"],
-["donne del vico latina “lestre” igp","(100% nero buono).","30,00 €"],
-["merumalia frascati “coqui bio” igp","(100% bombino bianco).","29,00 €"],
-["donne del vico latina “barufa” igp","(100% nero buono).","24,00 €"]]],
+["Pandorato del mese","Funghi cardoncelli spadellati, pecorino romano dop, trito di prezzemolo.","8,00 €"],
+["Sami special","Pomodoro in cottura, salame piccante, ricotta lavorata a ciuffi, olive taggiasche a pezzi, olio extravergine di oliva flaminio al peperoncino, prezzemolo fresco.","16,00 €"],
+["Ripiena","Soffritto di carote, sedano e cipolla, ragù bianco di cortile, provola affumicata, cipolla fritta.","16,00 €"],
+["Ortolana di stagione","Mozzarella, patate sfrangnate, verza ripassata co ajo, ojo e peperoncino, crema di carote, prezzemolo.","12,00 €"],
+["Fiori e alici","Mozzarella, fiori di zucca, alici di cetara.","12,00 €"],
+["Ripiena dolce","Crema pasticcera all'ananas (latte, uovo), ananas a cubetti, crumble di amaretti.","18,00 €"]]],
 ["Da Beve",[
-["acqua","3,00 €"],
-["analcolico","bottiglia piccola / grande.","3,00 / 6,00 €"],
-["birra media","5,50 €"],
-["vino al calice","5,00 / 8,00 €"],
-["caffè","2,00 €"],
-["amari e grappe","4,00 / 6,00 €"]]],
+["Acqua","","3,00 €"],
+["Analcolico","Bottiglia piccola / grande.","3,00 / 6,00 €"],
+["Birra media","","5,50 €"],
+["Vino al calice","","5,00 / 8,00 €"],
+["Caffè","","2,00 €"],
+["Amari e grappe","","4,00 / 6,00 €"]]],
 ["Dorci",[
-["pizza dolce ripiena","inquadra il qr code per scoprire la pizza dolce del mese.","* €"],
-["tiramisù","savoiardi, mascarpone, uova pastorizzate, zucchero, caffè, cacao.","6,00 €"],
-["maritozzo con mousse al caffè","tipico maritozzo dolce romano, ripieno di mousse al caffè (farina, panna, caffè, zucchero, amido di mais).","6,00 €"],
-["“ricotta & visciole” in barattolo","crumble di crostata (farina), crema di ricotta, visciole, menta.","6,00 €"],
-["gelato del mese","gelato del maestro gelatiere eugenio morrone, campione del mondo di gelateria. chiedi al nostro staff il gusto del mese.","6,00 €"]]]
+["Pizza dolce ripiena","Crema pasticcera all'ananas (latte, uovo), ananas a cubetti, crumble di amaretti.","18,00 €"],
+["Tiramisù","Savoiardi, mascarpone, uova pastorizzate, zucchero, caffè, cacao.","6,00 €"],
+["Maritozzo con mousse al caffè","Tipico maritozzo dolce romano, ripieno di mousse al caffè (farina, panna, caffè, zucchero, amido di mais).","6,00 €"],
+["“Ricotta & Visciole” in barattolo","Crumble di crostata (farina), crema di ricotta, visciole, menta.","6,00 €"],
+["Gelato del mese","Melone bianco invernale.","6,00 €"]]]
 ];
 
-const rows=$("#rows"),orb=$("#orb");
+/* carta dei vini completa per la pagina dedicata */
+const VINI_DATA=[
+["Carta dei Vini — Bianchi",[
+["Casale Mattia “Terre Laviche” Frascati DOC bio","(20% malvasia 20% trebbiano 30% bombino 30% bellone).","22,00 €"],
+["Riserva della Cascina “Gallieno bio” IGT","(100% malvasia puntinata).","32,00 €"],
+["Damiano Ciolli Olevano “Botte 22” DOC","(70% trebbiano 30% ottonese).","29,00 €"],
+["Alberto Giacobbe Paliano “Duchessa”","(100% passerina).","24,00 €"],
+["Donne del Vico Latina “Servana” IGP","(100% bellone).","24,00 €"],
+["Cantina Berucci Piglio “Raphael Bianco” IGT","(70% trebbiano 10% ottonese 10% malvasia).","33,00 €"],
+["Casale Certosa Santa Palomba “Grechetto” IGP","(100% grechetto).","24,00 €"],
+["Merumalia Frascati “Giova” IGP","(100% greco).","26,00 €"]]],
+["Carta dei Vini — Rossi",[
+["Podere Orto Trevinano “Trivium” IGP","(70% sangiovese 30% grechetto rosso).","38,00 €"],
+["Cantina Berucci Piglio “Rapahael Rosso” DOCG","(100% cesanese di affile).","39,00 €"],
+["Casale Certosa Santa Palomba “Luperco Bio” IGP","(100% montepulciano).","26,00 €"],
+["Marco Carpineti Cori “Capolemole Rosso” IGT","(60% nero buono 30% montepulciano 10% cesanese).","32,00 €"],
+["Alberto Giacobbe Paliano “Giacobbe” Cesanese di Olevano superiore DOC","(100% cesanese di affile).","28,00 €"],
+["Alberto Giacobbe Paliano “Lepanto” Cesanese del Piglio superiore DOCG","(100% cesanese di affile).","52,00 €"],
+["Merumalia Frascati “Vetus Bio” DOC","(70% montepulciano 30% shiraz).","30,00 €"],
+["Riserva della Cascina “IX Miglio Rosso Bio” IGT","(50% merlot 30% montepulciano 20% sangiovese).","24,00 €"],
+["I Pampini Latina “Oriente Syrah” IGT","(100% syrah).","30,00 €"]]],
+["Carta dei Vini — Rosati e Rifermentati",[
+["Riserva della Cascina “La via delle rose bio” IGT","(100% sangiovese laziale).","28,00 €"],
+["Alberto Giacobbe Paliano “Sfriccio” IGP","(100% cesanese di affile).","25,00 €"],
+["Donne del Vico Latina “Lestre” IGP","(100% nero buono).","30,00 €"],
+["Merumalia Frascati “Coqui Bio” IGP","(100% bombino bianco).","29,00 €"],
+["Donne del Vico Latina “Barufa” IGP","(100% nero buono).","24,00 €"]]]
+];
+
+const rows=$("#rows"),viniRows=$("#vini-rows"),orb=$("#orb");
 const KEY={"Friggitelli": "fri", "Gnocchi alla vaccinara": "gno", "Tonnarelli alla carbonara": "car", "Alici fritte dorate": "ali", "Trippa alla romana": "tri", "Pollo alla cacciatora": "pol", "Bucatini alla ’matriciana": "ama", "Tonnarelli cacio e pepe": "cac"};
 const pal=["#ffa26b","#fbeff1","#ff7aa8","#bcd9a2","#8b7bff","#ffd27a","#d9a27b"];let k=0;
+
 rows.innerHTML=G.map(g=>`<div class="grp"><h4 class="cat">${g[0]}</h4>${g[1].map(m=>`<div class="row" data-c="${pal[k++%pal.length]}" data-k="${KEY[m[0]]||''}"><h3>${m[0]}</h3><p>${m[1]}</p><span class="price">${m[2]}</span>${KEY[m[0]]?`<div class="rimg" data-img="${KEY[m[0]]}"></div>`:""}</div>`).join("")}</div>`).join("");
+
+viniRows.innerHTML=VINI_DATA.map(g=>`<div class="grp"><h4 class="cat">${g[0]}</h4>${g[1].map(m=>`<div class="row" data-c="${pal[k++%pal.length]}"><h3>${m[0]}</h3><p>${m[1]}</p><span class="price">${m[2]}</span></div>`).join("")}</div>`).join("");
+
+function showVini(e){
+  if(e) e.preventDefault();
+  document.body.classList.add("view-vini");
+  window.scrollTo(0,0);
+}
+function showHome(e){
+  if(e) e.preventDefault();
+  document.body.classList.remove("view-vini");
+  window.scrollTo(0,0);
+}
+
 let ox=mx,oy=my,orbOn=false,curRow=null;
 $$(".row").forEach(r=>{
   r.addEventListener("pointerenter",e=>{mouseType=e.pointerType;curRow=r;orb.style.setProperty("--c",r.dataset.c);orb.style.backgroundImage=IMGS[r.dataset.k]?`url(${IMGS[r.dataset.k]})`:"none";orb.classList.add("on");orbOn=true});
 });
-rows.addEventListener("pointerleave",()=>{orb.classList.remove("on");orbOn=false;curRow=null});
+addEventListener("pointerleave",()=>{orb.classList.remove("on");orbOn=false;curRow=null});
 
 /* cursore e magnetismo */
 const dot=$(".dot"),ring=$(".ring");
