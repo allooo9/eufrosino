@@ -374,63 +374,70 @@ manifEl.innerHTML=manifEl.textContent.split(" ").map(w=>`<span class="w${/tavola
 const words=$$(".w",manifEl);
 
 /* menu */
-const menu=[
-["Carbonara","Guanciale, tuorlo, pecorino, pepe. Niente panna, mai.","#ffa26b"],
-["Cacio e pepe","Tonnarelli, pecorino romano, pepe nero tostato.","#fbeff1"],
-["Amatriciana","Bucatini, guanciale croccante, pomodoro, pecorino.","#ff7aa8"],
-["Gricia","La madre di tutte: guanciale, pecorino, pepe.","#bcd9a2"],
-["Carciofi alla giudia","Fritti due volte, croccanti come petali di carta.","#8b7bff"],
-["Saltimbocca alla romana","Vitello, prosciutto, salvia, vino bianco.","#ff5d8f"],
-["Supplì","Riso, ragù e un cuore di mozzarella che fila.","#ffd27a"],
-["Tiramisù","Savoiardi, caffè, mascarpone, cacao. Nient’altro.","#d9a27b"]];
-const rows=$("#rows"),orb=$("#orb");
 const G=[
-["Fuori menu",[
-["Pandorato, stracciatella e alici","Pane di casa ammollato nel latte e fritto con l’uovo, stracciatella di bufala, alici di Sicilia.","8.5"],
-["Spaghetti co’ ’e telline","Soffritto di aglio, olio e peperoncino, telline del litorale laziale (Presidio Slow Food), prezzemolo.","15"],
-["Tonnarelli, fiori e alici","Tonnarelli all’uovo, soffritto, fiori di zucca freschi, alici di Cetara, pepe rosa.","14"],
-["Lumache alla romana","Lumache da allevamento biologico dell’azienda agricola Gizzi, vino bianco, pomodoro, mentuccia.","15"]]],
-["Antipasti",[
-["Facioli co’ le cotiche","Fagioli borlotti, soffritto, peperoncino fresco, pomodori italiani, cotenna di prosciutto.","8"],
-["Polpette de bollito con salsa verde","Bovino adulto, patate, pecorino romano Dop, mortadella. Salsa di prezzemolo, aglio, acciughe e capperi.","8"],
-["Trippa alla romana","Trippa di vitello, pecorino romano Dop, pelati, soffritto, vino bianco e menta fresca.","9"],
-["Panzanella alla romana e bufala","Pane bono, pomodori, cipolla, olio extravergine, basilico, mozzarella di bufala Campana Dop.","8"],
-["De core","Coratella d’abbacchio: polmoni, cuore, fegato, milza e reni, vino bianco, cipolla, alloro.","9"]]],
-["Pastasciutte",[
-["Tonnarelli cacio e pepe","Tonnarello all’uovo, pecorino romano Dop, selezione di tre pepi.","12"],
-["Bucatini alla ’matriciana","Pomodori italiani, guanciale, pecorino romano Dop, pepe nero.","12"],
-["Rigatoni alla gricia","Rigatone all’uovo, pecorino romano Dop, pepe nero, guanciale artigianale.","12"],
-["Tonnarelli alla carbonara","Tonnarello all’uovo, pecorino romano Dop, pepe nero, uova, guanciale artigianale.","12"],
-["Gnocchi alla vaccinara","Gnocchi di patate, pomodori italiani, stracotto di coda di vitellone, pecorino romano Dop.","14"]]],
-["Pietanze",[
-["Pollo alla cacciatora","Pollo ruspante, rosmarino, aglio, vino bianco e aceto bono.","14"],
-["Alici fritte dorate","Alici fresche infarinate e fritte (o pescato secondo disponibilità), maionese al pepe.","14"],
-["Saltimbocca alla romana","Fettine di vitella, prosciutto crudo di Parma 24 mesi, salvia e vino.","15"],
-["Coda alla vaccinara","Coda di vitellone, sedano, carota e cipolla, pelati, pepe e odori.","15"]]],
+["Friggitoria Romana",[
+["Crocchetta cacio e pepe","Patate, mozzarella, pecorino, pepe, uovo, pangrattato.","2.80"],
+["Supplì al telefono","Riso, pomodoro, mozzarella, uova, pangrattato, basilico, soffritto.","2.80"],
+["Supplì carbonara","Riso, uovo, guanciale, pepe, pangrattato, pecorino.","3.00"],
+["Frittatina di bucatini all’amatriciana","Pasta, pomodoro, guanciale, pepe, pangrattato, uovo, pecorino.","4.50"],
+["Tris della romanità","Supplì Carbonara, Frittatina all'Amatriciana, Crocchetta Cacio e Pepe.","9.00"],
+["Filetto di baccalà con crema di ceci","Baccalà, farina, lievito di birra, olio evo, crema di ceci, pomodoro e rosmarino.","6.50"],
+["Mozzarella in carrozza","Pane, mozzarella, basilico, prosciutto crudo, uovo.","5.80"]]],
+["Dalla Cucina",[
+["La Zozza","La mitica pizza della tradizione romana, servita a pezzi e “sporcata” di pomodoro, olio, sale e origano. (La pizza prima della pizza).","8.00"],
+["Panzanella alla romana e bufala","Pane, pomodori, cipolla, olio EVO, aceto, origano, basilico e mozzarella di bufala campana DOP.","8.00"],
+["Polpette di bollito","Bovino adulto selezione “Macelleria Galli”, patate, uova, PECORINO romano Dop, mortadella igp, noce moscata, PANGRATTATO* saba: prezzemolo, aglio, ACCIUGHE, capperi, ACETO e olio eva.","8.00"],
+["Trippa alla romana","Trippa di vitello selezione “Macelleria Galli”, PECORINO romano dop, pomodori pelati 100% italiani, soffritto di SEDANO, carota e cipolla, vino bianco, olio extravergine di oliva e menta fresca.","9.00"],
+["Alici dorate","Alici infarinate e fritte servite con MAIONESE al pepe.","9.00"],
+["Pandorato del mese","Pane casareccio “ammollato” nel latte e frrito con l’UOVO servito ogni mese con nuovi condimenti.","*"]]],
+["Primi",[
+["Carbonara","Pecorino romano Dop, Pepe Nero “Emporio Delle Spezie”, UOVA, guanciale artigianale “Bottega Roccia”.","12.00"],
+["Cacio e pepe","PECORINO romano DOP, Selezione di tre pepi “Emporio Delle Spezie”.","12.00"],
+["’Matriciana","Pomodori 100% italiani, guanciale “Bottega Roccia”, PECORINO romano Dop, Pepe Nero “Emporio Delle Spezie”.","12.00"],
+["Gricia","PECORINO romano Dop, Pepe Nero “Emporio Delle Spezie”, guanciale artigianale “Bottega Roccia”.","12.00"],
+["Gnocchi alla vaccinara","Gnocchi di patate “Pastificio Secondi”, pomodori 100% italiani, stracotto di coda di vitelone selezione “Macelleria Galli”, SEDANO, carota e cipolla, olio evo, pepe nero e PECORINO romano dop.","14.00"],
+["Zingara","Aglio, olio e peperoncino, sugo di pomodoro, filetti di TONNO, prezzemolo, olive, capperi, basilico fresco e olio extravergine di oliva.","9.00"]]],
+["Secondi",[
+["Saltimbocca alla romana","Fettine scelte di vitella selezione “Macelleria Galli”, prosciutto crudo di Parma dop 24 mesi, salvia, VINO, pepe, FARINA e olio evo.","15.00"],
+["Coda alla vaccinara","Coda di vitellone selezione “Macelleria Galli”, SEDANO, carota e cipolla, olio extravergine di oliva, pomodori pelati 100% italiani, pepe e “odori”.","15.00"],
+["Pollo alla cacciatora","Pollo ruspante selezione “Macelleria Galli”, olio extravergine di oliva, rosmarino, pepe nero, aglio, VINO bianco e ACETO bono.","14.00"]]],
 ["Contorni",[
-["Cicoria, ajo e ojo","Cicoria ripassata in padella con aglio, olio e peperoncino.","6"],
-["Patate ar forno","Patate, aglio, olio evo e rosmarino.","6"],
-["“Frittata” de patate alla romana","Patate sfragnate, pomodoro, uovo e pecorino.","6"],
-["Friggitelli","Fritti a mestiere, con sale di Trapani (Presidio Slow Food).","6"]]],
-["Dolci",[
-["Tiramisù","Savojardi, mascarpone, uova pastorizzate, caffè e cacao.","6"],
-["Maritozzo al caffè","Il tipico maritozzo dolce romano, ripieno di mousse al caffè.","6"],
-["Ricotta e visciole","Cheesecake scomposta in barattolo, con crumble e menta.","6"],
-["“Gelato”","Gelato alle fragole di Terracina del maestro gelatiere Eugenio Morrone.","6"]]],
-["Da bere",[
-["Vini in mescita","Bianco, rosso, bollicina.","5 / 5 / 8"],
-["Vini sfusi, Riserva della Cascina","Bianco o rosso Igp, mezzo litro o un litro.","8 / 15"],
-["Vini in bottiglia","Per la carta dei vini chiedi al cameriere.",""],
-["Birra artigianale","Pils, Ipa, Bock, Weisse.","5.5"],
-["Acqua","Ferrarelle, Natia, Maxima.","3"],
-["Bevande analcoliche","Grande o piccola.","6 / 3"]]],
-["Caffè e digestivi",[
-["Espresso","Mondi Caffè, 60% Arabica e 40% Robusta, Slow Food Coffee Coalition.","2"],
-["Amaro","Chiedi al personale di sala.","4 / 6"],
-["Distillato","Grappa bianca o barricata, whisky, cognac.","4 / 6"],
-["Liquore","Genziana, limoncello, nocino, ratafia.","4"]]],
-["Pane e coperto",[
-["Il cestino del pane","Pane a lievitazione naturale di “Zampa, Forno Etico”, farine italiane selezionate. Servizio, coperto e pane.","2"]]]];
+["Cicoria, ajo e ojo","Cicoria ripassata in padella con aglio, olio e peperoncino.","6.00"],
+["Patate ar forno","Patate, aglio, olio evo e rosmarino.","6.00"]]],
+["‘E Pizze — Made by A Rota (Pizzeria Osteria Romana)",[
+["Rossa","Pomodoro e olio evo.","7.50"],
+["Marinara","Pomodoro, aglio, origano, olio evo.","8.00"],
+["Margherita","Pomodoro, mozzarella, basilico.","9.00"],
+["Funghi rossa","Pomodoro, funghi, prezzemolo, olio EVO.","9.50"],
+["Napoli","Pomodoro, mozzarella, alici.","10.00"],
+["Margherita con bufala","Pomodoro, mozzarella di bufala campana DOP, basilico, olio EVO.","11.00"],
+["Diavola","Pomodoro, mozzarella, salame piccante.","11.00"],
+["Calzone romano","Mozzarella, uovo, prosciutto crudo.","11.00"],
+["Ortolana di stagione","Inquadra il QR code per scoprire la nostra ortolana.","*"],
+["Crostino","Mozzarella, prosciutto cotto.","11.00"],
+["Tonno e cipolla","Pomodoro, mozzarella, tonno, cipolla.","11.00"],
+["Boscaiola","Mozzarella, funghi, salsiccia, pepe.","11.00"],
+["Focaccia con prosciutto","Prosciutto crudo, olio EVO.","11.00"],
+["Patate e salsiccia","Mozzarella, patate, salsiccia, rosmarino.","11.00"],
+["Capricciosa","Pomodoro, mozzarella, carciofi, olive, funghi, uova, prosciutto crudo.","11.50"],
+["Quattro formaggi","Mozzarella, brie, gorgonzola, parmigiano, noce moscata.","11.50"],
+["Focaccia con bufala e prosciutto","Mozzarella di bufala campana DOP, Prosciutto crudo, olio evo, basilico.","13.00"]]],
+["Da Beve",[
+["Acqua","Ferrarelle, Natia, Maxima.","3.00"],
+["Analcolico","Bottiglia piccola / grande.","3.00 / 6.00"],
+["Birra media","Alla spina o artigianale.","5.50"],
+["Vino al calice","Bianco, rosso o bollicina.","5.00 / 8.00"],
+["Caffè","Espresso selezionato.","2.00"],
+["Amari e grappe","Selezione della casa.","4.00 / 6.00"]]],
+["Dorci",[
+["Pizza dolce ripiena","Inquadra il QR code per scoprire la pizza dolce del mese.","*"],
+["Tiramisù","Savoiardi, mascarpone, uova pastorizzate, zucchero, caffè, cacao.","6.00"],
+["Maritozzo con mousse al caffè","Tipico maritozzo dolce romano, ripieno di mousse al caffè (farina, panna, caffè, zucchero, amido di mais).","6.00"],
+["“Ricotta & Visciole” in barattolo","Crumble di crostata (farina), crema di ricotta, visciole, menta.","6.00"],
+["Gelato del mese","Gelato del maestro gelatiere Eugenio Morrone, campione del mondo di gelateria. Chiedi al nostro staff il gusto del mese.","6.00"]]]
+];
+
+const rows=$("#rows"),orb=$("#orb");
 const KEY={"Friggitelli": "fri", "Gnocchi alla vaccinara": "gno", "Tonnarelli alla carbonara": "car", "Alici fritte dorate": "ali", "Trippa alla romana": "tri", "Pollo alla cacciatora": "pol", "Bucatini alla ’matriciana": "ama", "Tonnarelli cacio e pepe": "cac"};
 const pal=["#ffa26b","#fbeff1","#ff7aa8","#bcd9a2","#8b7bff","#ffd27a","#d9a27b"];let k=0;
 rows.innerHTML=G.map(g=>`<div class="grp"><h4 class="cat">${g[0]}</h4>${g[1].map(m=>`<div class="row" data-c="${pal[k++%pal.length]}" data-k="${KEY[m[0]]||''}"><h3>${m[0]}</h3><p>${m[1]}</p><span class="price">${m[2]}</span>${KEY[m[0]]?`<div class="rimg" data-img="${KEY[m[0]]}"></div>`:""}</div>`).join("")}</div>`).join("");
