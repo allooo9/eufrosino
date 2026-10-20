@@ -91,11 +91,11 @@ section{position:relative}
 .row:last-child{border-bottom:1px solid #fbeff125}
 .row h3{margin:0;font:400 clamp(1.5rem,3vw,2.5rem)/1 var(--serif);letter-spacing:-.02em;font-variation-settings:"wght" 340,"SOFT" 100,"opsz" 144;transition:font-variation-settings .6s}
 .row p{margin:0;max-width:40ch;opacity:.85}
-.rows:hover .row{opacity:.28}
+.rows:hover .row{opacity:.62}
 .rows .row:hover{opacity:1;padding-left:clamp(.5rem,2.5vw,2rem)}
 .row:hover h3{font-variation-settings:"wght" 800,"SOFT" 100,"opsz" 144,"WONK" 1}
 @media (max-width:700px){.row{grid-template-columns:1fr}}
-.orb{position:fixed;left:0;top:0;z-index:2;width:min(38vmin,380px);aspect-ratio:1;margin:calc(min(38vmin,380px)/-2) 0 0 calc(min(38vmin,380px)/-2);background:var(--c,#fff);opacity:0;transition:opacity .5s;pointer-events:none;animation:morph 7s ease-in-out infinite}
+.orb{position:fixed;left:0;top:0;z-index:2;width:min(26vmin,250px);aspect-ratio:1;margin:calc(min(26vmin,250px)/-2) 0 0 calc(min(26vmin,250px)/-2);background:var(--c,#fff);opacity:0;transition:opacity .5s;pointer-events:none;animation:morph 7s ease-in-out infinite}
 .orb.on{opacity:.92}
 @keyframes morph{0%,100%{border-radius:60% 40% 55% 45%/50% 60% 40% 50%}33%{border-radius:40% 60% 35% 65%/60% 35% 65% 40%}66%{border-radius:50% 50% 65% 35%/35% 55% 45% 65%}}
 
@@ -153,8 +153,8 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
 .manif{position:relative}
 .blobimg{flex:0 0 min(78vw,400px);width:min(78vw,400px);aspect-ratio:1;background-size:cover;background-position:center;animation:morph 9s ease-in-out infinite;box-shadow:0 30px 80px #0006}
 .introrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:3rem clamp(2rem,6vw,6rem);margin-top:4rem}
-.introrow .intro{flex:1 1 300px;margin:0;max-width:46ch}
-.manif .intro p{max-width:none;font:300 clamp(1.2rem,2vw,1.55rem)/1.5 var(--serif);letter-spacing:0}
+.introrow .intro{flex:1 1 320px;margin:0;max-width:none}
+.manif .intro p{max-width:none;font:350 clamp(1.5rem,3vw,2.4rem)/1.12 var(--serif);letter-spacing:-.02em}
 
 .wheelwrap{position:relative;width:clamp(130px,24vw,280px);aspect-ratio:1}
 .wheelwrap .wheel{position:absolute;inset:0;width:100%;height:100%}
@@ -168,6 +168,32 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
 .more .pill{padding:.8rem 1.4rem}
 .hero .hero-cta{align-self:center;margin-top:1.8rem;opacity:0;transition:opacity 1.2s 2.5s,transform .35s,background .3s}
 .ready .hero .hero-cta{opacity:1}
+/* ritocchi */
+.manif{padding-bottom:clamp(3.5rem,9vw,8rem)}
+.arch{padding-bottom:clamp(3rem,7vw,6rem)}
+.menu{padding-top:clamp(2.5rem,6vw,5rem)}
+.map{position:relative;padding:2px;border:0;overflow:hidden;border-radius:34px;background:none}
+.map::before{content:"";position:absolute;inset:-60%;background:conic-gradient(from 0deg,transparent 0 65%,var(--apri),var(--rose),var(--volt),transparent);animation:spin 7s linear infinite}
+.map iframe{position:relative;display:block;width:100%;height:100%;border:0;border-radius:32px;background:#1a0b22;filter:invert(.92) hue-rotate(180deg) saturate(.75) contrast(.92);transition:filter .7s}
+.map:hover iframe,.map.on iframe{filter:none}
+.mapveil{position:absolute;inset:2px;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding:1.2rem;border:0;border-radius:32px;color:#fff;background:linear-gradient(transparent 70%,#1a0b22cc);font:italic 400 1.1rem var(--serif);cursor:pointer}
+.map.on .mapveil{display:none}
+.dot.hide,.ring.hide{opacity:0}
+.rimg{display:none}
+@media (hover:none),(max-width:700px){.ph span,.ph[data-img]::after{opacity:0;transition:opacity .4s}.ph.open span,.ph.open[data-img]::after{opacity:1}}
+@media (hover:none){
+.blob{filter:blur(60px)}
+.orb{display:none}
+.row{mix-blend-mode:normal;color:var(--ink);opacity:.5;transition:opacity .5s}
+.rows:hover .row{opacity:.5}
+.rows .row:hover{padding-left:0}
+.row:hover h3{font-variation-settings:"wght" 340,"SOFT" 100,"opsz" 144}
+.rows .row.act,.rows:hover .row.act{opacity:1}
+.row.act h3{font-variation-settings:"wght" 620,"SOFT" 100,"opsz" 144}
+.rimg{display:block;grid-column:1/-1;aspect-ratio:16/10;border-radius:22px;background-size:cover;background-position:center;clip-path:inset(0 0 100% 0 round 22px);transition:clip-path 1.1s cubic-bezier(.2,.9,.2,1)}
+.row.seen .rimg{clip-path:inset(0 round 22px)}
+}
+@media (prefers-reduced-motion:reduce){.map::before{animation:none}.rimg{transition:none}}
 .hours{max-width:900px}
 .day{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.1rem 0;border-top:1px solid #fbeff125;font:350 clamp(1.5rem,3.6vw,2.6rem)/1.1 var(--serif);transition:padding .5s cubic-bezier(.2,.9,.2,1),color .3s}
 .day:last-child{border-bottom:1px solid #fbeff125}
@@ -289,14 +315,7 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
         <p>Il pulsante qui sotto apre il percorso direttamente su Google Maps.</p>
         <a class="big" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x132f63eba0d5750f:0x303529eee31ac403" target="_blank" rel="noopener" data-mag>Apri in Maps</a>
       </div>
-      <div class="map" aria-hidden="true">
-        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-          <path d="M-10 250C90 190 150 270 220 170S350 60 420 100" fill="none" stroke="#5b4bff" stroke-width="16" stroke-linecap="round" opacity=".5"/>
-          <g class="roads"><path d="M40 0L120 300"/><path d="M0 90C120 110 260 70 400 130"/><path d="M180 0L260 300"/><path d="M310 0C300 100 340 200 380 300"/><path d="M0 200L400 230"/></g>
-          <circle class="pulse" cx="250" cy="140" r="8"/><circle class="pulse" cx="250" cy="140" r="8" style="animation-delay:1.2s"/>
-          <circle cx="250" cy="140" r="9" fill="#ffa26b"/><circle cx="250" cy="140" r="3.5" fill="#1a0b22"/>
-        </svg>
-      </div>
+      <div class="map"><iframe title="Mappa: Osteria Eufrosino, Via di Tor Pignattara 188, Roma" src="https://www.google.com/maps?q=Via+di+Tor+Pignattara+188,+00177+Roma&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><button class="mapveil" type="button">Clicca o tocca per muovere la mappa</button></div>
     </div>
   </section>
 
@@ -322,7 +341,7 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
 
 <script>
 const IMGS={
- "cac": "https://i.ibb.co/pjP0nz6L/Save-Clip-App-848186775-18135658990732328-7426679608676963247-n.jpg",
+ "cac": "https://i.ibb.co/VWY9hsTw/847802447-18135658975732328-6866953442546504645-n.jpg",
  "fun": "https://i.ibb.co/fzrnL5Wx/Save-Clip-App-839225818-18134964907732328-3461102763590745698-n.jpg",
  "fri": "https://i.ibb.co/5gv2kJDZ/Save-Clip-App-731632129-18125758066732328-910536978548883489-n.jpg",
  "gno": "https://i.ibb.co/jPr7SV0c/Save-Clip-App-746947068-18126472372732328-8539307843637708284-n.jpg",
@@ -414,7 +433,7 @@ const G=[
 ["Il cestino del pane","Pane a lievitazione naturale di “Zampa, Forno Etico”, farine italiane selezionate. Servizio, coperto e pane.","2"]]]];
 const KEY={"Friggitelli": "fri", "Gnocchi alla vaccinara": "gno", "Tonnarelli alla carbonara": "car", "Alici fritte dorate": "ali", "Trippa alla romana": "tri", "Pollo alla cacciatora": "pol", "Bucatini alla ’matriciana": "ama", "Tonnarelli cacio e pepe": "cac"};
 const pal=["#ffa26b","#fbeff1","#ff7aa8","#bcd9a2","#8b7bff","#ffd27a","#d9a27b"];let k=0;
-rows.innerHTML=G.map(g=>`<div class="grp"><h4 class="cat">${g[0]}</h4>${g[1].map(m=>`<div class="row" data-c="${pal[k++%pal.length]}" data-k="${KEY[m[0]]||''}"><h3>${m[0]}</h3><p>${m[1]}</p><span class="price">${m[2]}</span></div>`).join("")}</div>`).join("");
+rows.innerHTML=G.map(g=>`<div class="grp"><h4 class="cat">${g[0]}</h4>${g[1].map(m=>`<div class="row" data-c="${pal[k++%pal.length]}" data-k="${KEY[m[0]]||''}"><h3>${m[0]}</h3><p>${m[1]}</p><span class="price">${m[2]}</span>${KEY[m[0]]?`<div class="rimg" data-img="${KEY[m[0]]}"></div>`:""}</div>`).join("")}</div>`).join("");
 let ox=mx,oy=my,orbOn=false,curRow=null;
 $$(".row").forEach(r=>{
   r.addEventListener("pointerenter",e=>{mouseType=e.pointerType;curRow=r;orb.style.setProperty("--c",r.dataset.c);orb.style.backgroundImage=IMGS[r.dataset.k]?`url(${IMGS[r.dataset.k]})`:"none";orb.classList.add("on");orbOn=true});
@@ -504,6 +523,13 @@ revs.addEventListener("pointermove",e=>{if(drag)revs.scrollLeft=sl-(e.clientX-sx
 addEventListener("pointerup",()=>{if(drag){drag=false;revs.style.scrollSnapType=""}});
 const days=$$(".day");days[(new Date().getDay()+6)%7].classList.add("today");
 
+$$(".ph").forEach(c=>c.addEventListener("click",()=>{const o=c.classList.contains("open");$$(".ph.open").forEach(x=>x.classList.remove("open"));if(!o)c.classList.add("open")}));
+const veil=$(".mapveil");if(veil){veil.addEventListener("click",()=>veil.parentElement.classList.add("on"));const mp=veil.parentElement;mp.addEventListener("pointerenter",()=>{dot.classList.add("hide");ring.classList.add("hide")});mp.addEventListener("pointerleave",()=>{dot.classList.remove("hide");ring.classList.remove("hide")})}
+if(matchMedia("(hover:none)").matches){
+  const seen=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("seen");seen.unobserve(e.target)}}),{rootMargin:"0px 0px -12% 0px"});
+  const act=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle("act",e.isIntersecting)),{rootMargin:"-32% 0px -32% 0px"});
+  $$(".row").forEach(r=>{seen.observe(r);act.observe(r)});
+}
 addEventListener("resize",measure);
 addEventListener("load",()=>{measure()});
 document.fonts&&document.fonts.ready.then(measure);
