@@ -50,18 +50,14 @@ main{position:relative;z-index:2}
 section{position:relative}
 
 /* hero */
-.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:7rem clamp(1rem,4vw,3rem) 4rem}
-.hero h1{margin:0;font:400 clamp(3rem,14.2vw,15rem)/.9 var(--serif);letter-spacing:-.035em;white-space:nowrap;text-align:center}
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:7rem clamp(1rem,4vw,3rem) 4rem;align-items:center;}
+.hero h1{margin:0;font:400 clamp(2rem,7vw,7.5rem)/.9 var(--serif);letter-spacing:-.035em;white-space:nowrap;text-align:center}
 .l{display:inline-block;overflow:hidden;padding:.06em .01em .12em}
 .l span{display:inline-block;transform:translateY(115%) rotate(6deg);font-variation-settings:"wght" 400,"opsz" 144,"SOFT" 50,"WONK" 0}
 .ready .l span{animation:up 1.2s cubic-bezier(.2,.9,.2,1) forwards;animation-delay:calc(1.1s + var(--i)*.07s)}
 @keyframes up{to{transform:none}}
 .hero p{margin:2.2rem auto 0;max-width:34ch;text-align:center;font:italic 300 clamp(1.2rem,2.4vw,1.7rem)/1.35 var(--serif);opacity:0;transition:opacity 1.2s 2.2s}
 .ready .hero p{opacity:.9}
-.badge{position:absolute;right:clamp(1rem,5vw,4rem);bottom:clamp(1.2rem,5vh,3rem);width:clamp(110px,14vw,170px);aspect-ratio:1}
-.badge svg{width:100%;height:100%;overflow:visible}
-.badge text{font:500 15px var(--sans);letter-spacing:.2em;fill:var(--ink)}
-.badge b{position:absolute;inset:0;display:grid;place-items:center;font:italic 400 2.2rem var(--serif);color:var(--apri)}
 
 /* marquee */
 .marq{overflow:hidden;padding:2.5rem 0;border-block:1px solid #fbeff122}
@@ -123,7 +119,6 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
 .rev q{quotes:none;font:italic 300 1.4rem/1.35 var(--serif)}
 .rev q::before{content:"“";display:block;margin-bottom:.8rem;font:600 5rem/.5 var(--serif);color:var(--rose)}
 .rev small{margin-top:1.5rem;font-size:.95rem;opacity:.85}
-.rev .st{color:var(--apri);letter-spacing:.2em}
 .gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(110px,15vw,200px);gap:1rem}
 .ph{position:relative;display:flex;align-items:flex-end;overflow:hidden;padding:1.1rem;border-radius:28px;background:var(--b);font:italic 400 1.1rem var(--serif);transition:transform .5s cubic-bezier(.2,.9,.2,1)}
 .ph::before{content:"";position:absolute;right:-15%;top:-20%;width:70%;aspect-ratio:1;background:var(--a);opacity:.9;animation:morph 9s ease-in-out infinite}
@@ -134,16 +129,8 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
 .cat{margin:3.5rem 0 1rem;font:italic 300 clamp(1.8rem,4vw,3rem)/1 var(--serif);color:var(--pist)}
 .grp:first-child .cat{margin-top:0}
 @media (max-width:700px){.price{text-align:left}}
-.rota{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:clamp(1.5rem,5vw,4rem);padding:clamp(1.8rem,5vw,4rem);overflow:hidden;border-radius:40px;color:var(--ink);background:radial-gradient(600px circle at 20% 0%,#ffa26b40,transparent 60%),linear-gradient(135deg,#5b1130,#2a1470)}
-.rota h2{margin:.2rem 0 1rem;font:300 clamp(3rem,9vw,8rem)/1 var(--serif);letter-spacing:-.03em}
-.rota p{margin:0;max-width:40ch}
-.rota .kick{font:italic 300 1.4rem var(--serif);color:var(--pist)}
-.rota .big{margin-top:1.6rem}
-.rota:hover .big{background:var(--apri)}
 .wheel{width:clamp(110px,22vw,260px);color:var(--apri);animation:spin 26s linear infinite}
-.rota:hover .wheel{animation-duration:4s}
 @keyframes spin{to{transform:rotate(360deg)}}
-@media (max-width:700px){.rota{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.wheel{animation:none}}
 .ph[data-img]{background-size:cover;background-position:center}
 .ph[data-img]::before{display:none}
@@ -156,10 +143,6 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
 .introrow .intro{flex:1 1 320px;margin:0;max-width:none}
 .manif .intro p{max-width:none;font:350 clamp(1.5rem,3vw,2.4rem)/1.12 var(--serif);letter-spacing:-.02em}
 
-.wheelwrap{position:relative;width:clamp(130px,24vw,280px);aspect-ratio:1}
-.wheelwrap .wheel{position:absolute;inset:0;width:100%;height:100%}
-.pizza{position:absolute;inset:13%;border-radius:50%;background-size:cover;background-position:center;animation:spin 40s linear infinite reverse}
-@media (prefers-reduced-motion:reduce){.pizza,.blobimg{animation:none}}
 .soc{display:inline-flex;align-items:center;gap:.6rem;padding:.3rem 0}
 .soc svg{width:1.35em;height:1.35em;flex:none;transition:transform .4s cubic-bezier(.2,.9,.2,1)}
 .soc:hover svg{transform:rotate(-12deg) scale(1.2)}
@@ -249,10 +232,6 @@ body.view-vini #page-vini {display:block;}
   <section class="hero">
     <h1 id="title" aria-label="A Rota & Eufrosino"></h1>
     <p>Pizzeria e Osteria Romana</p>
-    <div class="badge" aria-hidden="true">
-      <svg viewBox="0 0 200 200" id="badge"><defs><path id="c" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0"/></defs><text><textPath href="#c">vino buono ✺ tavola lunga ✺ Roma di sera ✺</textPath></text></svg>
-      <b>E</b>
-    </div>
   </section>
 
   <div class="marq" aria-hidden="true"><div class="track" id="track"></div></div>
@@ -291,15 +270,15 @@ l’energia di A Rota e l’anima autentica di Eufrosino si uniscono ufficialmen
     <div class="revs rv">
       <article class="rev">
         <q>Tipica trattoria di quartiere, dall’atmosfera rilassata, vivace e vagamente vintage, con una proposta schietta e a prezzi corretti.</q>
-        <small><span class="st">★★★★★</span><br>Gambero Rosso</small>
+        <small>Gambero Rosso</small>
       </article>
       <article class="rev">
         <q>Stanley Tucci intraprende un viaggio in Italia alla scoperta delle cucine più autentiche e divertenti di ogni regione e la quinta puntata dedicata al Lazio vede protagonisti anche noi</q>
-        <small><span class="st">★★★★★</span><br>Riconoscimento internazionale TV & Guide Gastronomiche</small>
+        <small>Riconoscimento internazionale TV & Guide Gastronomiche</small>
       </article>
       <article class="rev">
         <q>Nel cuore di Tor Pignattara, A Rota è la pizzeria di quartiere di una volta che omaggia la tradizione con occhio critico e cosciente.</q>
-        <small><span class="st">★★★★★</span><br>Identità Golose</small>
+        <small>Identità Golose</small>
       </article>
     </div>
   </section>
@@ -354,13 +333,6 @@ l’energia di A Rota e l’anima autentica di Eufrosino si uniscono ufficialmen
     </div>
   </section>
 
-  <section class="sec" id="rota">
-    <a class="rota rv" href="https://restaurante.covermanager.com/a-rota/" target="_blank" rel="noopener">
-      <div class="wheelwrap"><div class="pizza" data-img="piz" role="img" aria-label="Pizza romana al mattarello"></div><svg class="wheel" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="97" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/></svg></div>
-      <div><p class="kick">La pizzeria sorella di Eufrosino</p><h2>A Rota</h2><p>Pizza romana al mattarello. Prenota il tuo tavolo online.</p><span class="big">Prenota da A Rota</span></div>
-    </a>
-  </section>
-
   <section class="cta" id="contatti">
     <h2>Ci vediamo<br><em>a tavola.</em></h2>
     <div class="info">
@@ -413,7 +385,7 @@ $("#title").innerHTML="A Rota & Eufrosino".split("").map((c,i)=>`<span class="l"
 const letters=$$(".l>span");
 
 /* marquee */
-const dishes=["trippa alla romana","coratella","cacio e pepe","bucatini alla ’matriciana","gricia","carbonara","gnocchi alla vaccinara","saltimbocca","alici fritte","maritozzo","tiramisù"];
+const dishes=["trippa alla romana","coratella","cacio e pepe","bucatini alla ’matriciana","gricia","carbonara","gnocchi alla vaccinara","saltimbocca","alici fritte","maritozzo","tiramisù","pizze romane"];
 const track=$("#track");
 track.innerHTML=[...dishes,...dishes].map(d=>`<span>${d} ✺</span>`).join("");
 let half=0,mq=0;const measure=()=>half=track.scrollWidth/2;
@@ -590,7 +562,6 @@ function frame(now){
       const base=reduce?500:430+230*Math.sin(t*1.1+i*.8);
       s.style.fontVariationSettings=`"wght" ${clamp(base+f*400,100,900)|0},"opsz" 144,"SOFT" ${(clamp(f*100+35*(1+Math.sin(t+i)),0,100))|0},"WONK" ${f>.3?1:0}`;
     });
-    $("#badge").style.transform=`rotate(${scrollY*.22+t*10}deg)`;
   }
 
   if(half){
