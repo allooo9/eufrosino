@@ -59,6 +59,11 @@ section{position:relative}
 .hero p{margin:2.2rem auto 0;max-width:34ch;text-align:center;font:italic 300 clamp(1.2rem,2.4vw,1.7rem)/1.35 var(--serif);opacity:0;transition:opacity 1.2s 2.2s}
 .ready .hero p{opacity:.9}
 
+/* pulsante prenotazione hero */
+.hero-booking-btn{display:inline-block;margin-top:2rem;padding:1rem 2.2rem;border-radius:99px;background:var(--apri);color:var(--bg);font:500 1.05rem var(--sans);transition:transform .35s cubic-bezier(.2,.9,.2,1),background .3s;opacity:0;transition:opacity 1.2s 2.4s, background .3s, transform .35s cubic-bezier(.2,.9,.2,1)}
+.ready .hero-booking-btn{opacity:1}
+.hero-booking-btn:hover{background:var(--ink);transform:scale(1.05)}
+
 /* marquee */
 .marq{overflow:hidden;padding:2.5rem 0;border-block:1px solid #fbeff122}
 .track{display:flex;width:max-content;white-space:nowrap;will-change:transform}
@@ -101,6 +106,12 @@ section{position:relative}
 .cta h2 em{font-weight:600;color:var(--apri)}
 .big{display:inline-block;margin-top:3rem;padding:1.4rem 2.6rem;border-radius:99px;background:var(--ink);color:var(--bg);font:500 1.15rem var(--sans);transition:transform .35s cubic-bezier(.2,.9,.2,1),background .3s}
 .big:hover{background:var(--apri)}
+
+/* secondo tasto prenota ora prima del footer */
+.section-booking-container {margin:3.5rem auto 0;text-align:center;}
+.section-booking-btn {display:inline-block;padding:1.2rem 2.8rem;border-radius:99px;background:var(--apri);color:var(--bg);font:500 1.15rem var(--sans);transition:transform .35s cubic-bezier(.2,.9,.2,1),background .3s}
+.section-booking-btn:hover {background:var(--ink);transform:scale(1.05);color:var(--ink)}
+
 .info{margin:clamp(4rem,9vw,8rem) auto 0;max-width:1000px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;text-align:left;scroll-margin-top:100px;}
 .info div{border-top:1px solid #fbeff130;padding-top:1rem}
 .info h4{margin:0 0 .4rem;font:italic 400 1.5rem var(--serif);color:var(--pist)}
@@ -232,6 +243,7 @@ body.view-vini #page-vini {display:block;}
   <section class="hero">
     <h1 id="title" aria-label="A Rota & Eufrosino"></h1>
     <p>Pizzeria e Osteria Romana</p>
+    <a class="hero-booking-btn" href="javascript:void(0);">Prenota un tavolo</a>
   </section>
 
   <div class="marq" aria-hidden="true"><div class="track" id="track"></div></div>
@@ -286,9 +298,9 @@ l’energia di A Rota e l’anima autentica di Eufrosino si uniscono ufficialmen
   <section class="sec" id="recensioni">
     <h2>Dicono di noi</h2>
     <div class="revs rv">
-      <article class="rev"><q>Un tuffo nel passato, dove riscopri sapori antichi e piatti tipici di una Roma che non c’è più, lontano dal caos e dal turismo del centro storico. Ambiente curato, come nei ristoranti romani degli anni ’60-’70, personale cordiale e discreto.</q><small><span class="st">★★★★★</span><br>Tielletta, Tripadvisor, gennaio 2026</small></article>
-      <article class="rev"><q>Posto del cuore! Cibo ottimo, servizio impeccabile, cameriere super gentile. Il locale è confortevole, con ampi spazi tra i tavoli e un’atmosfera accogliente. Tutto perfetto!</q><small><span class="st">★★★★★</span><br>Marianna, Google Reviews, marzo 2026</small></article>
-      <article class="rev"><q>Trattoria romana con piatti della tradizione cucinati con maestria e qualche rivisitazione interessante. Trippa, coratella, polpette di bollito con salsa verde: tutto a mestiere, porzioni abbondanti e costi non eccessivi. E la gricia con prosciutto croccante e fichi era spaziale!</q><small><span class="st">★★★★★</span><br>Elisa, Google Reviews, gennaio 2026</small></article>
+      <article class="rev"><q>Un tuffo nel passato, dove riscopri sapori antichi e piatti tipici di una Roma che non c’è più, lontano dal caos e dal turismo del centro storico. Ambiente curato, come nei ristoranti romani degli anni ’60-’70, personale cordiale e discreto.</q><small>Tielletta, Tripadvisor, gennaio 2026</small></article>
+      <article class="rev"><q>Posto del cuore! Cibo ottimo, servizio impeccabile, cameriere super gentile. Il locale è confortevole, con ampi spazi tra i tavoli e un’atmosfera accogliente. Tutto perfetto!</q><small>Marianna, Google Reviews, marzo 2026</small></article>
+      <article class="rev"><q>Trattoria romana con piatti della tradizione cucinati con maestria e qualche rivisitazione interessante. Trippa, coratella, polpette di bollito con salsa verde: tutto a mestiere, porzioni abbondanti e costi non eccessivi. E la gricia con prosciutto croccante e fichi era spaziale!</q><small>Elisa, Google Reviews, gennaio 2026</small></article>
     </div>
   </section>
 
@@ -335,6 +347,11 @@ l’energia di A Rota e l’anima autentica di Eufrosino si uniscono ufficialmen
 
   <section class="cta" id="contatti">
     <h2>Ci vediamo<br><em>a tavola.</em></h2>
+    
+    <div class="section-booking-container">
+      <a class="section-booking-btn" href="javascript:void(0);">Prenota un tavolo</a>
+    </div>
+
     <div class="info" id="info-contatti">
       <div><h4>Telefono</h4><p><a href="tel:+393485883932">+39 348 588 3932</a> - Solo per informazioni, non accettiamo prenotazioni telefoniche.</p></div>
       <div><h4>Email</h4><p><a href="mailto:press.osteriaeufrosino@gmail.com">press.osteriaeufrosino@gmail.com</a><br><a href="mailto:press.arotapizzeria@gmail.com">press.arotapizzeria@gmail.com</a></p></div>
@@ -581,7 +598,7 @@ function frame(now){
   if(orbOn){
     let tx=mx,ty=my;
     if(mouseType!=="mouse"&&curRow){const r=curRow.getBoundingClientRect();tx=vw*.75;ty=r.top+r.height/2}
-    ox=lerp(ox,tx,.12);oy=lerp(oy,ty,.12);
+    ox=lerp(ox,tx,.12);oy=lerp(ox,ty,.12);
   }
   orb.style.transform=`translate(${ox}px,${oy}px)`;
   requestAnimationFrame(frame);
