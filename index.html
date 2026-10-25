@@ -212,6 +212,15 @@ body.view-vini main {display:none;}
 body.view-vini #page-vini {display:block;}
 .back-btn {display:inline-block;margin-bottom:2rem;padding:0.8rem 1.6rem;border-radius:99px;background:var(--ink);color:var(--bg);font:500 1rem var(--sans);cursor:pointer}
 .back-btn:hover {background:var(--apri);}
+
+/* Stili aggiuntivi per le foto extra */
+.extra-photos-gal {display:grid; grid-template-columns:repeat(3, 1fr); gap:1rem; margin-top:1.5rem;}
+.extra-ph {border-radius:28px; overflow:hidden; background:#ffffff08; border:1px solid #fbeff125; display:flex; align-items:center; justify-content:center;}
+.extra-ph img {display:block; width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; transition:transform .5s cubic-bezier(.2,.9,.2,1);}
+.extra-ph img:hover {transform:scale(1.03);}
+@media (max-width:700px) {
+  .extra-photos-gal {grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -318,10 +327,17 @@ l’energia di A Rota e l’anima autentica di Eufrosino si uniscono ufficialmen
       <div class="ph" data-img="fri" role="img" aria-label="Friggitelli"><span>Friggitelli</span></div>
     </div>
     <div class="more rv">
-      <p>Tante altre foto dei nostri piatti sono su Instagram</p>
-      <a class="pill soc" href="https://www.instagram.com/eufrosinoroma/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>@eufrosinoroma</a>
+      <p>Tante altre foto dei nostri piatti sono su Instagram.</p>
+      <a class="pill soc" href="https://www.instagram.com/eufrosinoroma/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>Guardale tutte su @eufrosinoroma</a>
       <p>Dai un'occhiata anche alle pizze di A Rota</p>
       <a class="pill soc" href="https://www.instagram.com/arotapizzeria/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>@arotapizzeria</a>
+      
+      <!-- Tre foto aggiuntive delle pizze di A Rota -->
+      <div class="extra-photos-gal">
+        <div class="extra-ph"><a href="https://ibb.co/YFD82fX9" target="_blank" rel="noopener"><img src="https://i.ibb.co/S4Q0NVcT/Save-Clip-App-718495486-18117908143750107-5212023597602767107-n.jpg" alt="Pizza A Rota 1" border="0" /></a></div>
+        <div class="extra-ph"><a href="https://ibb.co/dJP3RLLs" target="_blank" rel="noopener"><img src="https://i.ibb.co/Kz2QJLLc/Save-Clip-App-838966373-18129651118750107-5901973957789421533-n.jpg" alt="Pizza A Rota 2" border="0" /></a></div>
+        <div class="extra-ph"><a href="https://ibb.co/nMGxG48q" target="_blank" rel="noopener"><img src="https://i.ibb.co/Jj1D18FW/Save-Clip-App-810731209-18127622968750107-647161989301233232-n.jpg" alt="Pizza A Rota 3" border="0" /></a></div>
+      </div>
     </div>
   </section>
 
@@ -448,7 +464,7 @@ const G=[
 ["Contorni",[
 ["Cicoria, ajo e ojo","Cicoria ripassata in padella con aglio, olio e peperoncino.","6,00 €"],
 ["Patate ar forno","Patate, aglio, olio evo e rosmarino.","6,00 €"]]],
-["‘E Pizze",[
+["‘E Pizze — Made by A Rota",[
 ["Rossa","Pomodoro e olio evo.","7,50 €"],
 ["Marinara","Pomodoro, aglio, origano, olio evo.","8,00 €"],
 ["Margherita","Pomodoro, mozzarella, basilico.","9,00 €"],
@@ -466,7 +482,7 @@ const G=[
 ["Capricciosa","Pomodoro, mozzarella, carciofini, olive, funghi, uova, prosciutto crudo.","11,50 €"],
 ["Quattro formaggi","Mozzarella, brie, gorgonzola, parmigiano, noce moscata.","11,50 €"],
 ["Focaccia con bufala e prosciutto","Mozzarella di bufala campana dop, prosciutto crudo, olio evo, basilico.","13,00 €"]]],
-["Le Speciali di Ottobre",[
+["Le Speciali di Ottobre — Made by A Rota",[
 ["Pandorato del mese","Funghi cardoncelli spadellati, pecorino romano dop, trito di prezzemolo.","8,00 €"],
 ["Sami special","Pomodoro in cottura, salame piccante, ricotta lavorata a ciuffi, olive taggiasche a pezzi, olio extravergine di oliva flaminio al peperoncino, prezzemolo fresco.","16,00 €"],
 ["Ripiena","Soffritto di carote, sedano e cipolla, ragù bianco di cortile, provola affumicata, cipolla fritta.","16,00 €"],
