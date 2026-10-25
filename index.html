@@ -97,7 +97,7 @@ section{position:relative}
 .row:hover h3{font-variation-settings:"wght" 800,"SOFT" 100,"opsz" 144,"WONK" 1}
 @media (max-width:700px){.row{grid-template-columns:1fr}}
 
-/* Orb/cursore immagini menù visibile solo su desktop con puntatore fine */
+/* Orb/cursore immagini menù visibile solo su desktop con puntatore fine dentro la sezione menu */
 .orb{position:fixed;left:0;top:0;z-index:2;width:min(26vmin,250px);aspect-ratio:1;margin:calc(min(26vmin,250px)/-2) 0 0 calc(min(26vmin,250px)/-2);background:var(--c,#fff);opacity:0;transition:opacity .5s;pointer-events:none;display:none;animation:morph 7s ease-in-out infinite}
 @media (hover:hover) and (pointer:fine){.orb{display:block}}
 .orb.on{opacity:.92}
@@ -556,10 +556,34 @@ function showHome(e){
 }
 
 let ox=mx,oy=my,orbOn=false,curRow=null;
-$$(".row").forEach(r=>{
-  r.addEventListener("pointerenter",e=>{mouseType=e.pointerType;curRow=r;orb.style.setProperty("--c",r.dataset.c);orb.style.backgroundImage=IMGS[r.dataset.k]?`url(${IMGS[r.dataset.k]})`:"none";orb.classList.add("on");orbOn=true});
+
+/* Gestione dell'orbita confinata rigorosamente dentro la sezione menu */
+const menuSection=$("#menu");
+menuSection.addEventListener("pointerenter", e=>{
+  mouseType=e.pointerType;
 });
-addEventListener("pointerleave",()=>{orb.classList.remove("on");orbOn=false;curRow=null});
+menuSection.addEventListener("pointerleave", ()=>{
+  orb.classList.remove("on");
+  orbOn=false;
+  curRow=null;
+});
+
+$$(".row", menuSection).forEach(r=>{
+  r.addEventListener("pointerenter", e=>{
+    mouseType=e.pointerType;
+    curRow=r;
+    ox=mx; oy=my; /* Aggancia subito alla posizione corrente del mouse per evitare scatti */
+    orb.style.setProperty("--c",r.dataset.c);
+    orb.style.backgroundImage=IMGS[r.dataset.k]?`url(${IMGS[r.dataset.k]})`:"none";
+    orb.classList.add("on");
+    orbOn=true;
+  });
+  r.addEventListener("pointerleave", ()=>{
+    orb.classList.remove("on");
+    orbOn=false;
+    curRow=null;
+  });
+});
 
 /* cursore e magnetismo */
 const dot=$(".dot"),ring=$(".ring");
@@ -620,9 +644,8 @@ function frame(now){
   archPaths.forEach((p,i)=>p.style.strokeDashoffset=1-clamp(ap*2.2-(i>>1)*.28-(i&1)*.12));
 
   if(orbOn){
-    let tx=mx,ty=my;
-    if(mouseType!=="mouse"&&curRow){const r=curRow.getBoundingClientRect();tx=vw*.75;ty=r.top+r.height/2}
-    ox=lerp(ox,tx,.12);oy=lerp(ox,ty,.12);
+    ox=lerp(ox,mx,.25);
+    oy=lerp(oy,my,.25);
   }
   orb.style.transform=`translate(${ox}px,${oy}px)`;
   requestAnimationFrame(frame);
