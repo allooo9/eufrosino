@@ -243,7 +243,7 @@ body.view-vini #page-vini {display:block;}
   <section class="hero">
     <h1 id="title" aria-label="A Rota & Eufrosino"></h1>
     <p>Pizzeria e Osteria Romana</p>
-    <a class="hero-booking-btn" href="javascript:void(0);">Prenota un tavolo</a>
+    <a class="hero-booking-btn" href="https://restaurante.covermanager.com/a-rota/" target="_blank" rel="noopener">Prenota un tavolo</a>
   </section>
 
   <div class="marq" aria-hidden="true"><div class="track" id="track"></div></div>
@@ -349,7 +349,7 @@ l’energia di A Rota e l’anima autentica di Eufrosino si uniscono ufficialmen
     <h2>Ci vediamo<br><em>a tavola.</em></h2>
     
     <div class="section-booking-container">
-      <a class="section-booking-btn" href="javascript:void(0);">Prenota un tavolo</a>
+      <a class="section-booking-btn" href="https://restaurante.covermanager.com/a-rota/" target="_blank" rel="noopener">Prenota un tavolo</a>
     </div>
 
     <div class="info" id="info-contatti">
@@ -598,7 +598,7 @@ function frame(now){
   if(orbOn){
     let tx=mx,ty=my;
     if(mouseType!=="mouse"&&curRow){const r=curRow.getBoundingClientRect();tx=vw*.75;ty=r.top+r.height/2}
-    ox=lerp(ox,tx,.12);oy=lerp(ox,ty,.12);
+    ox=lerp(ox,tx,.12);oy=lerp(oy,ty,.12);
   }
   orb.style.transform=`translate(${ox}px,${oy}px)`;
   requestAnimationFrame(frame);
