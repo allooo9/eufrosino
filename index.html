@@ -157,7 +157,7 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
 .soc{display:inline-flex;align-items:center;gap:.6rem;padding:.3rem 0}
 .soc svg{width:1.35em;height:1.35em;flex:none;transition:transform .4s cubic-bezier(.2,.9,.2,1)}
 .soc:hover svg{transform:rotate(-12deg) scale(1.2)}
-.more{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 2rem;margin-top:2.5rem}
+.more{display:flex;flex-direction:column;align-items:flex-start;gap:.8rem;margin-top:2.5rem}
 .more p{margin:0;font:italic 300 clamp(1.3rem,2.6vw,2rem)/1.2 var(--serif)}
 .more .pill{padding:.8rem 1.4rem}
 .hero .hero-cta{display:none}
@@ -317,7 +317,10 @@ l’energia di A Rota e l’anima autentica di Eufrosino si uniscono ufficialmen
       <div class="ph" data-img="ali" role="img" aria-label="Alici fritte dorate con maionese"><span>Alici fritte dorate con maionese</span></div>
       <div class="ph" data-img="fri" role="img" aria-label="Friggitelli"><span>Friggitelli</span></div>
     </div>
-    <div class="more rv"><p>Tante altre foto dei nostri piatti sono su Instagram.</p><a class="pill soc" href="https://www.instagram.com/eufrosinoroma/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>Guardale tutte su @eufrosinoroma</a></div>
+    <div class="more rv">
+      <p>Tante altre foto dei nostri piatti sono su Instagram. Guardale tutte su <a href="https://www.instagram.com/eufrosinoroma/" target="_blank" rel="noopener">@eufrosinoroma</a></p>
+      <p>Dai un'occhiata anche alle pizze di A Rota <a href="https://www.instagram.com/arotapizzeria/" target="_blank" rel="noopener">@arotapizzeria</a></p>
+    </div>
   </section>
 
   <section class="sec" id="orari">
@@ -598,7 +601,7 @@ function frame(now){
   if(orbOn){
     let tx=mx,ty=my;
     if(mouseType!=="mouse"&&curRow){const r=curRow.getBoundingClientRect();tx=vw*.75;ty=r.top+r.height/2}
-    ox=lerp(ox,tx,.12);oy=lerp(oy,ty,.12);
+    ox=lerp(ox,tx,.12);oy=lerp(ox,ty,.12);
   }
   orb.style.transform=`translate(${ox}px,${oy}px)`;
   requestAnimationFrame(frame);
