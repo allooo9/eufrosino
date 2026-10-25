@@ -537,7 +537,16 @@ const VINI_DATA=[
 ];
 
 const rows=$("#rows"),viniRows=$("#vini-rows"),orb=$("#orb");
-const KEY={"Friggitelli": "fri", "Gnocchi alla vaccinara": "gno", "Tonnarelli alla carbonara": "car", "Alici fritte dorate": "ali", "Trippa alla romana": "tri", "Pollo alla cacciatora": "pol", "Bucatini alla ’matriciana": "ama", "Tonnarelli cacio e pepe": "cac"};
+const KEY={
+  "Cacio e pepe": "cac",
+  "’Matriciana": "ama",
+  "Alici dorate": "ali",
+  "Friggitelli": "fri", 
+  "Gnocchi alla vaccinara": "gno", 
+  "Tonnarelli alla carbonara": "car", 
+  "Trippa alla romana": "tri", 
+  "Pollo alla cacciatora": "pol"
+};
 const pal=["#ffa26b","#fbeff1","#ff7aa8","#bcd9a2","#8b7bff","#ffd27a","#d9a27b"];let k=0;
 
 rows.innerHTML=G.map(g=>`<div class="grp"><h4 class="cat">${g[0]}</h4>${g[1].map(m=>`<div class="row" data-c="${pal[k++%pal.length]}" data-k="${KEY[m[0]]||''}"><h3>${m[0]}</h3><p>${m[1]}</p><span class="price">${m[2]}</span>${KEY[m[0]]?`<div class="rimg" data-img="${KEY[m[0]]}"></div>`:""}</div>`).join("")}${g[0]==="Da Beve"?`<div style="margin-top:2rem;"><a class="pill" href="#" onclick="showVini(event)">Apri la Carta Vini Completa ↗</a></div>`:""}</div>`).join("");
