@@ -51,7 +51,7 @@ section{position:relative}
 
 /* hero */
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:7rem clamp(1rem,4vw,3rem) 4rem;align-items:center;}
-.hero h1{margin:0;font:400 clamp(2rem,7vw,7.5rem)/.9 var(--serif);letter-spacing:-.035em;white-space:nowrap;text-align:center}
+.hero h1{margin:0;font:400 clamp(2.2rem,8.5vw,9.5rem)/1 var(--serif);letter-spacing:-.035em;text-align:center;word-break:keep-all;max-width:100%}
 .l{display:inline-block;overflow:hidden;padding:.06em .01em .12em}
 .l span{display:inline-block;transform:translateY(115%) rotate(6deg);font-variation-settings:"wght" 400,"opsz" 144,"SOFT" 50,"WONK" 0}
 .ready .l span{animation:up 1.2s cubic-bezier(.2,.9,.2,1) forwards;animation-delay:calc(1.1s + var(--i)*.07s)}
@@ -335,7 +335,7 @@ l’energia di A Rota e l’anima autentica di Eufrosino si uniscono ufficialmen
 
   <section class="cta" id="contatti">
     <h2>Ci vediamo<br><em>a tavola.</em></h2>
-    <div class="info">
+    <div class="info" id="info-contatti">
       <div><h4>Telefono</h4><p><a href="tel:+393485883932">+39 348 588 3932</a> - Solo per informazioni, non accettiamo prenotazioni telefoniche.</p></div>
       <div><h4>Email</h4><p><a href="mailto:press.osteriaeufrosino@gmail.com">press.osteriaeufrosino@gmail.com</a><br><a href="mailto:press.arotapizzeria@gmail.com">press.arotapizzeria@gmail.com</a></p></div>
       <div><h4>Social</h4><p>
@@ -385,9 +385,9 @@ $("#title").innerHTML="A Rota & Eufrosino".split("").map((c,i)=>`<span class="l"
 const letters=$$(".l>span");
 
 /* marquee */
-const dishes=["trippa alla romana","coratella","cacio e pepe","bucatini alla ’matriciana","gricia","carbonara","gnocchi alla vaccinara","saltimbocca","alici fritte","maritozzo","tiramisù","pizze romane"];
+const dishes=["amatriciana","grigia","carbonara","pizze romane"];
 const track=$("#track");
-track.innerHTML=[...dishes,...dishes].map(d=>`<span>${d} ✺</span>`).join("");
+track.innerHTML=[...dishes,...dishes,...dishes,...dishes].map(d=>`<span>${d} ✺</span>`).join("");
 let half=0,mq=0;const measure=()=>half=track.scrollWidth/2;
 
 /* manifesto */
