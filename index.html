@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Osteria Eufrosino, Roma</title>
+<title>A Rota & Eufrosino, Roma</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
@@ -166,8 +166,7 @@ footer{padding:2rem clamp(1.2rem,6vw,6rem) 3rem;text-align:center;font-size:.9re
 .more{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 2rem;margin-top:2.5rem}
 .more p{margin:0;font:italic 300 clamp(1.3rem,2.6vw,2rem)/1.2 var(--serif)}
 .more .pill{padding:.8rem 1.4rem}
-.hero .hero-cta{align-self:center;margin-top:1.8rem;opacity:0;transition:opacity 1.2s 2.5s,transform .35s,background .3s}
-.ready .hero .hero-cta{opacity:1}
+.hero .hero-cta{display:none}
 /* ritocchi */
 .manif{padding-bottom:clamp(3.5rem,9vw,8rem)}
 .arch{padding-bottom:clamp(3rem,7vw,6rem)}
@@ -222,7 +221,7 @@ body.view-vini #page-vini {display:block;}
 </style>
 </head>
 <body>
-<div class="curtain"><span>Eufrosino</span></div>
+<div class="curtain"><span>A Rota & Eufrosino</span></div>
 <div class="grain"></div>
 <div class="dot"></div><div class="ring"><i></i></div>
 <div class="blob" style="background:var(--wine)"></div>
@@ -231,7 +230,7 @@ body.view-vini #page-vini {display:block;}
 <div class="blob" style="background:var(--pist);opacity:.18;width:32vmax;height:32vmax"></div>
 
 <header>
-  <a class="logo" href="#top" onclick="showHome()">Eufrosino</a>
+  <a class="logo" href="#top" onclick="showHome()">A Rota & Eufrosino</a>
   <nav>
     <a href="#storia">Storia</a>
     <a href="#menu">Menu</a>
@@ -242,16 +241,14 @@ body.view-vini #page-vini {display:block;}
     <a href="#orari">Orari</a>
     <a href="#dove">Dove</a>
     <a href="#contatti">Contatti</a>
-    <a href="tel:+393485883932" class="pill" data-mag>Chiama 348 588 3932</a>
   </nav>
 </header>
 
 <!-- PAGINA PRINCIPALE HOME -->
 <main id="top">
   <section class="hero">
-    <h1 id="title" aria-label="Eufrosino"></h1>
-    <p>Osteria romana dove il tempo si allunga insieme alla tavola.</p>
-    <a class="big hero-cta" href="tel:+393485883932">Prenota al 348 588 3932</a>
+    <h1 id="title" aria-label="A Rota & Eufrosino"></h1>
+    <p>Pizzeria e Osteria Romana</p>
     <div class="badge" aria-hidden="true">
       <svg viewBox="0 0 200 200" id="badge"><defs><path id="c" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0"/></defs><text><textPath href="#c">vino buono ✺ tavola lunga ✺ Roma di sera ✺</textPath></text></svg>
       <b>E</b>
@@ -261,9 +258,10 @@ body.view-vini #page-vini {display:block;}
   <div class="marq" aria-hidden="true"><div class="track" id="track"></div></div>
 
   <section class="manif" id="storia">
-    <p id="manif">A Roma si mangia piano. Da Eufrosino la tavola è lunga, il vino è sincero e le ore si perdono volentieri.</p>
+    <p id="manif">A Roma si mangia piano. Da A Rota & Eufrosino la tavola è lunga, il vino è sincero e le ore si perdono volentieri.</p>
     <div class="introrow"><div class="blobimg" data-img="car" role="img" aria-label="Tonnarelli alla carbonara"></div>
-    <div class="intro rv"><p>Eufrosino apre nel 2020 da un’idea di Marco Pucciotti: portare in tavola le ricette popolari di tutte le regioni d’Italia. Col tempo la rotta è cambiata, e oggi la cucina è romana e laziale, con qualche piatto ormai raro da trovare nelle trattorie della Capitale.</p></div></div>
+    <div class="intro rv"><p>Tra il Tuscolano e il Pigneto, in uno dei quartieri più vivi e veraci di Roma, ti invitiamo a vivere l’autentica esperienza gastronomica della vera pizza cotta al forno a legna e della vera cucina romana. Due anime, una sola grande passione:
+l’energia di A Rota e l’anima autentica di Eufrosino si uniscono ufficialmente sotto lo stesso tetto per dare vita a un locale unico.</p></div></div>
   </section>
 
   <section class="arch" id="arch">
@@ -280,12 +278,11 @@ body.view-vini #page-vini {display:block;}
         <path pathLength="1" d="M835 290V165A70 70 0 0 1 945 165V290"/>
       </g>
     </svg>
-    <h2>Roma è fatta di archi. Anche la nostra tavola.</h2>
+    <h2>Roma è fatta di archi, proprio come la nostra tavola.</h2>
   </section>
 
   <section class="menu" id="menu">
     <h2>Il menu</h2>
-    <div style="margin-bottom:2rem;"><a class="pill" href="#" onclick="showVini(event)">Apri la Carta Vini Completa ↗</a></div>
     <div class="rows" id="rows"></div>
   </section>
 
@@ -293,16 +290,16 @@ body.view-vini #page-vini {display:block;}
     <h2>Riconoscimenti & Guide</h2>
     <div class="revs rv">
       <article class="rev">
-        <q>Due anime, una sola grande passione. L’energia di A Rota e l’anima autentica di Eufrosino Osteria si uniscono sotto lo stesso tetto per dare vita a un locale unico tra tradizione verace e innovazione romana.</q>
-        <small><span class="st">★★★★★</span><br>Segnalato da Gambero Rosso, Slow Food, 5 Top Pizza & L’Espresso</small>
+        <q>Tipica trattoria di quartiere, dall’atmosfera rilassata, vivace e vagamente vintage, con una proposta schietta e a prezzi corretti.</q>
+        <small><span class="st">★★★★★</span><br>Gambero Rosso</small>
       </article>
       <article class="rev">
-        <q>Stanley Tucci ha intrapreso un viaggio in Italia alla scoperta delle cucine più autentiche, eleggendo le nostre specialità romane e la pizza al mattarello tra le eccellenze del Lazio.</q>
+        <q>Stanley Tucci intraprende un viaggio in Italia alla scoperta delle cucine più autentiche e divertenti di ogni regione e la quinta puntata dedicata al Lazio vede protagonisti anche noi</q>
         <small><span class="st">★★★★★</span><br>Riconoscimento internazionale TV & Guide Gastronomiche</small>
       </article>
       <article class="rev">
-        <q>Un locale verace tra il Tuscolano e il Pigneto che porta avanti con maestria la cultura della vera pizza romana stesa al mattarello e della friggitoria d’autore.</q>
-        <small><span class="st">★★★★★</span><br>Identità Golose & Guide ai Sapori</small>
+        <q>Nel cuore di Tor Pignattara, A Rota è la pizzeria di quartiere di una volta che omaggia la tradizione con occhio critico e cosciente.</q>
+        <small><span class="st">★★★★★</span><br>Identità Golose</small>
       </article>
     </div>
   </section>
@@ -366,11 +363,16 @@ body.view-vini #page-vini {display:block;}
 
   <section class="cta" id="contatti">
     <h2>Ci vediamo<br><em>a tavola.</em></h2>
-    <a class="big" href="tel:+393485883932" data-mag>Prenota al 348 588 3932</a>
     <div class="info">
-      <div><h4>Telefono</h4><p><a href="tel:+393485883932">+39 348 588 3932</a></p></div>
-      <div><h4>Email</h4><p><a href="mailto:press.osteriaeufrosino@gmail.com">press.osteriaeufrosino@gmail.com</a></p></div>
-      <div><h4>Social</h4><p><a class="soc" href="https://www.instagram.com/eufrosinoroma/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a><br><a class="soc" href="https://www.facebook.com/EufrosinoRoma/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" transform="translate(4.9 4.7) scale(.58)" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg>Facebook</a></p></div>
+      <div><h4>Telefono</h4><p><a href="tel:+393485883932">+39 348 588 3932</a> - Solo per informazioni, non accettiamo prenotazioni telefoniche.</p></div>
+      <div><h4>Email</h4><p><a href="mailto:press.osteriaeufrosino@gmail.com">press.osteriaeufrosino@gmail.com</a><br><a href="mailto:press.arotapizzeria@gmail.com">press.arotapizzeria@gmail.com</a></p></div>
+      <div><h4>Social</h4><p>
+        <a class="soc" href="https://www.instagram.com/eufrosinoroma/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram (Eufrosino)</a><br>
+        <a class="soc" href="https://www.facebook.com/EufrosinoRoma/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" transform="translate(4.9 4.7) scale(.58)" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg>Facebook (Eufrosino)</a><br>
+        <a class="soc" href="https://www.instagram.com/arotapizzeria/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram (A Rota)</a><br>
+        <a class="soc" href="https://www.facebook.com/arotapizzeria/?locale=it_IT" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" transform="translate(4.9 4.7) scale(.58)" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg>Facebook (A Rota)</a><br>
+        <small style="display:block; margin-top:0.6rem; opacity:0.8;">Solo per aggiornamenti, non accettiamo prenotazioni via social</small>
+      </p></div>
     </div>
   </section>
 </main>
@@ -385,7 +387,7 @@ body.view-vini #page-vini {display:block;}
 </div>
 
 <div class="orb" id="orb"></div>
-<footer>Osteria Eufrosino, Roma</footer>
+<footer>A Rota & Eufrosino, Roma</footer>
 
 <script>
 const IMGS={
@@ -407,7 +409,7 @@ const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my,rx=mx,ry=my,hasMouse=false,mouseType="mouse";
 
 /* titolo a lettere */
-$("#title").innerHTML="Eufrosino".split("").map((c,i)=>`<span class="l" aria-hidden="true"><span style="--i:${i}">${c}</span></span>`).join("");
+$("#title").innerHTML="A Rota & Eufrosino".split("").map((c,i)=>`<span class="l" aria-hidden="true"><span style="--i:${i}">${c}</span></span>`).join("");
 const letters=$$(".l>span");
 
 /* marquee */
@@ -452,7 +454,7 @@ const G=[
 ["Contorni",[
 ["Cicoria, ajo e ojo","Cicoria ripassata in padella con aglio, olio e peperoncino.","6,00 €"],
 ["Patate ar forno","Patate, aglio, olio evo e rosmarino.","6,00 €"]]],
-["‘E Pizze — Made by A Rota (Pizzeria Osteria Romana)",[
+["‘E Pizze — Made by A Rota",[
 ["Rossa","Pomodoro e olio evo.","7,50 €"],
 ["Marinara","Pomodoro, aglio, origano, olio evo.","8,00 €"],
 ["Margherita","Pomodoro, mozzarella, basilico.","9,00 €"],
@@ -525,7 +527,7 @@ const rows=$("#rows"),viniRows=$("#vini-rows"),orb=$("#orb");
 const KEY={"Friggitelli": "fri", "Gnocchi alla vaccinara": "gno", "Tonnarelli alla carbonara": "car", "Alici fritte dorate": "ali", "Trippa alla romana": "tri", "Pollo alla cacciatora": "pol", "Bucatini alla ’matriciana": "ama", "Tonnarelli cacio e pepe": "cac"};
 const pal=["#ffa26b","#fbeff1","#ff7aa8","#bcd9a2","#8b7bff","#ffd27a","#d9a27b"];let k=0;
 
-rows.innerHTML=G.map(g=>`<div class="grp"><h4 class="cat">${g[0]}</h4>${g[1].map(m=>`<div class="row" data-c="${pal[k++%pal.length]}" data-k="${KEY[m[0]]||''}"><h3>${m[0]}</h3><p>${m[1]}</p><span class="price">${m[2]}</span>${KEY[m[0]]?`<div class="rimg" data-img="${KEY[m[0]]}"></div>`:""}</div>`).join("")}</div>`).join("");
+rows.innerHTML=G.map(g=>`<div class="grp"><h4 class="cat">${g[0]}</h4>${g[1].map(m=>`<div class="row" data-c="${pal[k++%pal.length]}" data-k="${KEY[m[0]]||''}"><h3>${m[0]}</h3><p>${m[1]}</p><span class="price">${m[2]}</span>${KEY[m[0]]?`<div class="rimg" data-img="${KEY[m[0]]}"></div>`:""}</div>`).join("")}${g[0]==="Da Beve"?`<div style="margin-top:2rem;"><a class="pill" href="#" onclick="showVini(event)">Apri la Carta Vini Completa ↗</a></div>`:""}</div>`).join("");
 
 viniRows.innerHTML=VINI_DATA.map(g=>`<div class="grp"><h4 class="cat">${g[0]}</h4>${g[1].map(m=>`<div class="row" data-c="${pal[k++%pal.length]}"><h3>${m[0]}</h3><p>${m[1]}</p><span class="price">${m[2]}</span></div>`).join("")}</div>`).join("");
 
